@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">Quiz2</string>
+    <string name="questions_edit_text_hint">Write questions here</string>
+    <string name="start_button">Start</string>
+    <string name="true_button">True</string>
+    <string name="false_button">false</string>
+    <string name="next_button">next</string>
+    <string name="previous_button">previous</string>
+    <string name="reset_button">reset</string>
+    <string name="cheat_button">cheat</string>
+    <string name="cheat_text_view">Are u sure?</string>
+    <string name="cheat_yes_button">yes</string>
+    <string name="cheat_no_button">no</string>
+    <string name="score_text_view">Score:</string>
+    <string name="score_int_text_view">0</string>
+    <string name="your_score_certificate">Your Score:</string>
+    <string name="show_or_hide_buttons_text_view">Show or hide buttons:</string>
+    <string name="true_switch_text">True</string>
+    <string name="false_switch_text">false</string>
+    <string name="next_switch_text">next</string>
+    <string name="previous_switch_text">previous</string>
+    <string name="first_switch_text">first</string>
+    <string name="last_switch_text">last</string>
+    <string name="cheat_switch_text">cheat</string>
+    <string name="change_question_size_radios">Change question size</string>
+    <string name="small_radio_button">Small</string>
+    <string name="change_question_size_text_view">Change question size</string>
+    <string name="medium_radio_button">Medium</string>
+    <string name="large_radio_button">Large</string>
+    <string name="colorful_radio_button">Colorful</string>
+    <string name="change_background_color_text_view">Change background color</string>
+</resources>

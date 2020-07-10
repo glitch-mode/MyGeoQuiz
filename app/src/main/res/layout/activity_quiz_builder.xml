@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:background="@mipmap/background_quiz"
+
+    tools:context="Controller.QuizBuilderActivity">
+
+    <EditText
+        android:id="@+id/questions_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_margin="20dp"
+        android:alpha="0.7"
+        android:background="@android:color/white"
+        android:gravity="start"
+        android:hint="@string/questions_edit_text_hint"
+        android:text="{[{“Tehran in iran”}, {true}, {false}, {green}],[{“iran language is english”}, {false}, {true}, {red}],[{“England is in usa”}, {false}, {false}, {black}]} , {30}"
+        android:inputType="textMultiLine"
+        android:scrollHorizontally="false"
+        android:padding="8dp"
+        android:textColor="#000000"
+        android:textSize="20sp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/start_button"
+        android:id="@+id/start_button"/>
+
+</LinearLayout>

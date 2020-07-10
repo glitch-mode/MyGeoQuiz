@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:orientation="vertical">
+
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context="Controller.SettingActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/show_or_hide_buttons_text_view"
+        android:textStyle="bold"
+        android:textSize="16sp"/>
+
+    <Switch
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/true_switch"
+        android:text="@string/true_switch_text"
+        android:checked="true"
+        android:textAllCaps="true"
+        android:layout_margin="4dp" />
+
+    <Switch
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/false_switch"
+        android:text="@string/false_switch_text"
+        android:checked="true"
+        android:textAllCaps="true"
+        android:layout_margin="4dp"  />
+
+    <Switch
+        android:id="@+id/next_switch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:checked="true"
+        android:textAllCaps="true"
+        android:text="@string/next_switch_text"
+        android:layout_margin="4dp"  />
+
+    <Switch
+        android:id="@+id/previous_switch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:checked="true"
+        android:textAllCaps="true"
+        android:text="@string/previous_switch_text"
+        android:layout_margin="4dp"  />
+
+    <Switch
+        android:id="@+id/first_switch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:checked="true"
+        android:textAllCaps="true"
+        android:text="@string/first_switch_text"
+        android:layout_margin="4dp"  />
+
+    <Switch
+        android:id="@+id/last_switch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:checked="true"
+        android:textAllCaps="true"
+        android:text="@string/last_switch_text"
+        android:layout_margin="4dp"  />
+
+    <Switch
+        android:id="@+id/cheat_switch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:checked="true"
+        android:textAllCaps="true"
+        android:text="@string/cheat_switch_text"
+        android:layout_margin="4dp"  />
+</LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="@string/change_question_size_text_view"
+        android:textStyle="bold"
+        android:textSize="16sp"/>
+
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="4dp"
+        android:id="@+id/question_size_radio_group">
+
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/small_radio_button"
+            android:text="@string/small_radio_button"/>
+
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:checked="true"
+            android:id="@+id/medium_radio_button"
+            android:text="@string/medium_radio_button"/>
+
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/large_radio_button"
+            android:text="@string/large_radio_button"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/change_background_color_text_view"
+            android:textSize="16sp"
+            android:textStyle="bold"
+
+    </RadioGroup>
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="4dp"
+            android:id="@+id/color_radio_group">
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/colorful_radio_button"
+                android:id="@+id/colorful_radio_button"
+                android:checked="true"/>
+
+        </RadioGroup>
+</LinearLayout>
+</ScrollView>

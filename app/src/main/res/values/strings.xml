@@ -29,4 +29,12 @@
     <string name="large_radio_button">Large</string>
     <string name="colorful_radio_button">Colorful</string>
     <string name="change_background_color_text_view">Change background color</string>
+    <string name="yellow_radio_utton">Yellow</string>
+    <string name="change_grades_text_view">Change grades</string>
+    <string name="positive_text_view">Positive</string>
+    <string name="default_postivie_edit_text">1</string>
+    <string name="negative_text_view">Negative</string>
+    <string name="default_negative_edit_text">0</string>
+    <string name="timeout_disable_text_view">Disable or Enable Time out</string>
+    <string name="save_setting_button">Save</string>
 </resources>

@@ -125,7 +125,7 @@
             android:layout_height="match_parent"
             android:text="@string/change_background_color_text_view"
             android:textSize="16sp"
-            android:textStyle="bold"
+            android:textStyle="bold"/>
 
     </RadioGroup>
         <RadioGroup
@@ -133,6 +133,7 @@
             android:layout_height="match_parent"
             android:padding="4dp"
             android:id="@+id/color_radio_group">
+
             <RadioButton
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -140,6 +141,73 @@
                 android:id="@+id/colorful_radio_button"
                 android:checked="true"/>
 
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/yellow_radio_utton"
+                android:id="@+id/yellow_radio_button"/>
+
         </RadioGroup>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/change_grades_text_view"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_margin="4dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/positive_text_view"
+                android:textSize="16sp"
+                android:textColor="@color/colorAccent"/>
+
+            <EditText
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:inputType="numberDecimal"
+                android:text="@string/default_postivie_edit_text"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/negative_text_view"
+                android:textColor="@color/design_default_color_error"
+                android:textSize="16sp"/>
+
+            <EditText
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:inputType="numberDecimal"
+                android:text="@string/default_negative_edit_text"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/timeout_disable_text_view"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+
+        <Switch
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:id="@+id/disable_enable_time_out_switch"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/save_setting_button"
+            android:layout_gravity="center"
+            android:id="@+id/save_button"/>
+
 </LinearLayout>
+
 </ScrollView>

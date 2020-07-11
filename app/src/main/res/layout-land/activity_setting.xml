@@ -1,9 +1,215 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+<ScrollView
     android:layout_height="match_parent"
-    tools:context="Controller.SettingActivity">
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:orientation="vertical">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            tools:context="Controller.SettingActivity">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/show_or_hide_buttons_text_view"
+                android:textStyle="bold"
+                android:textSize="16sp"/>
+
+            <Switch
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/true_switch"
+                android:text="@string/true_switch_text"
+                android:checked="true"
+                android:textAllCaps="true"
+                android:layout_margin="4dp" />
+
+            <Switch
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/false_switch"
+                android:text="@string/false_switch_text"
+                android:checked="true"
+                android:textAllCaps="true"
+                android:layout_margin="4dp"  />
+
+            <Switch
+                android:id="@+id/next_switch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:textAllCaps="true"
+                android:text="@string/next_switch_text"
+                android:layout_margin="4dp"  />
+
+            <Switch
+                android:id="@+id/previous_switch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:textAllCaps="true"
+                android:text="@string/previous_switch_text"
+                android:layout_margin="4dp"  />
+
+            <Switch
+                android:id="@+id/first_switch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:textAllCaps="true"
+                android:text="@string/first_switch_text"
+                android:layout_margin="4dp"  />
+
+            <Switch
+                android:id="@+id/last_switch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:textAllCaps="true"
+                android:text="@string/last_switch_text"
+                android:layout_margin="4dp"  />
+
+            <Switch
+                android:id="@+id/cheat_switch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:textAllCaps="true"
+                android:text="@string/cheat_switch_text"
+                android:layout_margin="4dp"  />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/change_question_size_text_view"
+            android:textStyle="bold"
+            android:textSize="16sp"/>
+
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="4dp"
+            android:id="@+id/question_size_radio_group">
+
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/small_radio_button"
+                android:text="@string/small_radio_button"/>
+
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:checked="true"
+                android:id="@+id/medium_radio_button"
+                android:text="@string/medium_radio_button"/>
+
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/large_radio_button"
+                android:text="@string/large_radio_button"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/change_background_color_text_view"
+                android:textSize="16sp"
+                android:textStyle="bold"/>
+
+        </RadioGroup>
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="4dp"
+            android:id="@+id/color_radio_group">
+
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/colorful_radio_button"
+                android:id="@+id/colorful_radio_button"
+                android:checked="true"/>
+
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/yellow_radio_utton"
+                android:id="@+id/yellow_radio_button"/>
+
+        </RadioGroup>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/change_grades_text_view"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_margin="4dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/positive_text_view"
+                android:textSize="16sp"
+                android:textColor="@color/colorAccent"/>
+
+            <EditText
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:id="@+id/positive_edit_text"
+                android:inputType="numberDecimal"
+                android:text="@string/default_postivie_edit_text"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/negative_text_view"
+                android:textColor="@color/design_default_color_error"
+                android:textSize="16sp"/>
+
+            <EditText
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:inputType="numberDecimal"
+                android:id="@+id/negative_edit_text"
+                android:text="@string/default_negative_edit_text"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/timeout_disable_text_view"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+
+        <Switch
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:id="@+id/disable_enable_time_out_switch"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/save_setting_button"
+            android:layout_gravity="center"
+            android:id="@+id/save_button"/>
+
+    </LinearLayout>
+
+</ScrollView>

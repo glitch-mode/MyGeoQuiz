@@ -17,6 +17,7 @@
             android:id="@+id/left_arrow_image_button"
             android:layout_width="100dp"
             android:layout_height="100dp"
+            android:background="#00000000"
             android:scaleType="centerCrop"
             android:src="@mipmap/ic_left_arrow2" />
 
@@ -55,6 +56,7 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_alignParentEnd="true"
+            android:background="#00000000"
             android:layout_alignParentRight="true"
             android:scaleType="centerCrop"
             android:src="@mipmap/ic_right_arrow" />
@@ -139,5 +141,16 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:text="@string/reset_button" />
+
+    <ImageButton
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:scaleType="centerCrop"
+        android:background="#00000000"
+        android:src="@mipmap/ic_setting"
+        android:id="@+id/setting_image_button"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
 </RelativeLayout>

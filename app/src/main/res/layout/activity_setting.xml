@@ -170,6 +170,7 @@
             <EditText
                 android:layout_width="50dp"
                 android:layout_height="50dp"
+                android:id="@+id/positive_edit_text"
                 android:inputType="numberDecimal"
                 android:text="@string/default_postivie_edit_text"/>
 
@@ -184,6 +185,7 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:inputType="numberDecimal"
+                android:id="@+id/negative_edit_text"
                 android:text="@string/default_negative_edit_text"/>
 
         </LinearLayout>

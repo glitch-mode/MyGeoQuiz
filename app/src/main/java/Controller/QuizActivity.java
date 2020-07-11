@@ -25,7 +25,7 @@ import java.util.List;
 
 public class QuizActivity extends AppCompatActivity {
     private ImageButton mButtonFirst, mButtonLast;
-    private Button mButtonPrevious, mButtonNext, mButtonTrue, mButtonFalse, mButtonReset, mButtonCheat;
+    private Button mButtonPrevious, mButtonNext, mButtonTrue, mButtonFalse, mButtonReset, mButtonCheat, mButtonSetting;
     private TextView mTextViewQuestion, mTextViewScore, mTimerTextView;
     private List<Question> mQuestionBank = new ArrayList<>();
     private int mIntTimer, mCurrentIndex = 0, mScore = 0;
@@ -235,6 +235,14 @@ public class QuizActivity extends AppCompatActivity {
                 intent.putExtra(BUNDLE_KEY_ANSWER, mAnswer);
                 intent.putExtra(BUNDLE_KEY_IS_CHEAT_USED, mIsCheatUsed);
                 startActivityForResult(intent, REQUEST_CODE_CHEAT_ACTIVITY);
+            }
+        });
+
+        mButtonSetting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(QuizActivity.this, SettingActivity.class);
+
             }
         });
 

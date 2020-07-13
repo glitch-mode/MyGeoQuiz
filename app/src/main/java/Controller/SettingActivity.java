@@ -3,18 +3,26 @@ package Controller;
 import Model.Setting;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.Switch;
 
 import com.example.quiz2.R;
 
+import java.io.Serializable;
+
 public class SettingActivity extends AppCompatActivity {
     private Switch mSwitchTrue, mSwitchFalse, mSwitchNext, mSwitchPrevious, mSwitchFirst, mSwitchLast, mSwitchCheat, mSwitchTimeOut;
     private RadioGroup mRadioGroupQuestionSize, mRadioGroupColor;
     private EditText mEditTextPositive, mEditTextNegative;
+    private Button mButtonSave;
     private Setting setting = new Setting();
+    public static final String EXTRA_SETTING_CLASS = "setting";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +31,14 @@ public class SettingActivity extends AppCompatActivity {
 
         findAllViews();
         setAllViews();
+        mButtonSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SettingActivity.this, QuizActivity.class);
+                intent.putExtra(EXTRA_SETTING_CLASS, (Serializable) setting);
+                startActivity(intent);
+            }
+        });
 
     }
 
@@ -39,6 +55,7 @@ public class SettingActivity extends AppCompatActivity {
         mRadioGroupColor = findViewById(R.id.color_radio_group);
         mEditTextPositive = findViewById(R.id.positive_edit_text);
         mEditTextNegative = findViewById(R.id.negative_edit_text);
+        mButtonSave = findViewById(R.id.save_button);
     }
 
     public void setAllViews() {

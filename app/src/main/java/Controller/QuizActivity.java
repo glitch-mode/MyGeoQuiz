@@ -2,6 +2,7 @@ package Controller;
 
 import Model.Colors;
 import Model.Question;
+import Model.Setting;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -34,6 +35,7 @@ public class QuizActivity extends AppCompatActivity {
     private CountDownTimer mCountDownTimer;
     private long mCountDownRemaining = 0;
     private boolean mAnswer;
+    private Setting mSetting;
     public static final String BUNDLE_KEY_CURRENT_INDEX = "mCurrentIndex";
     public static final String BUNDLE_KEY_IS_ANSWERED_ARRAY = "mISQuestionAnswered";
     public static final String BUNDLE_KEY_IS_CHEAT_USED = "mISCheatUsed";
@@ -42,6 +44,7 @@ public class QuizActivity extends AppCompatActivity {
     public static final String BUNDLE_KEY_COUNT_DOWN_REMAINING_LONG = "mCountDownRemaining";
     public static final String BUNDLE_KEY_ANSWER = "mAnswer";
     public static final int REQUEST_CODE_CHEAT_ACTIVITY = 1;
+    public static final String EXTRA_SETTING_CLASS = "setting";
 
 
     @Override
@@ -52,6 +55,7 @@ public class QuizActivity extends AppCompatActivity {
         parseQuestions(intent.getStringExtra(QuizActivity.BUNDLE_KEY_QUESTION));
         mIsQuestionAnswered = new boolean[mQuestionBank.size()];
         mIsCheatUsed = new boolean[mQuestionBank.size()];
+        mSetting = (Setting) intent.getSerializableExtra(EXTRA_SETTING_CLASS);
         timer(mIntTimer * 1000);
         findAllViews();
         setOnClickListeners();

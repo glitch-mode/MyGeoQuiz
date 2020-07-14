@@ -1,11 +1,13 @@
 package Controller;
 
 import Model.Setting;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.os.PersistableBundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -49,7 +51,16 @@ public class SettingActivity extends AppCompatActivity {
             setting = (Setting) intent.getSerializableExtra(QuizActivity.EXTRA_SETTING_OBJECT);
         }
 
+        if (savedInstanceState != null) {
+            setting = (Setting) savedInstanceState.getSerializable(EXTRA_SETTING_CLASS);
+        }
 
+    }
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putSerializable(EXTRA_SETTING_CLASS, setting);
     }
 
     public void findAllViews() {

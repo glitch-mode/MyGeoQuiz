@@ -11,10 +11,12 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.text.Layout;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,16 +27,17 @@ import java.util.HashMap;
 import java.util.List;
 
 public class QuizActivity extends AppCompatActivity {
-    private ImageButton mButtonFirst, mButtonLast;
-    private Button mButtonPrevious, mButtonNext, mButtonTrue, mButtonFalse, mButtonReset, mButtonCheat, mButtonSetting;
+    private ImageButton mButtonFirst, mButtonLast, mImageButtonSetting;
+    private Button mButtonPrevious, mButtonNext, mButtonTrue, mButtonFalse, mButtonReset, mButtonCheat;
     private TextView mTextViewQuestion, mTextViewScore, mTimerTextView;
     private List<Question> mQuestionBank = new ArrayList<>();
-    private int mIntTimer, mCurrentIndex = 0, mScore = 0;
+    private int mIntTimer, mCurrentIndex = 0, mScore = 0, pScore = 1, nScore = -1, mQuestionSize = 18;
     private boolean[] mIsCheatUsed;
     private boolean[] mIsQuestionAnswered;
     private CountDownTimer mCountDownTimer;
     private long mCountDownRemaining = 0;
     private boolean mAnswer;
+    private RelativeLayout mRelativeLayoutMain;
     private Setting mSetting;
     public static final String BUNDLE_KEY_CURRENT_INDEX = "mCurrentIndex";
     public static final String BUNDLE_KEY_IS_ANSWERED_ARRAY = "mISQuestionAnswered";
@@ -44,8 +47,9 @@ public class QuizActivity extends AppCompatActivity {
     public static final String BUNDLE_KEY_COUNT_DOWN_REMAINING_LONG = "mCountDownRemaining";
     public static final String BUNDLE_KEY_ANSWER = "mAnswer";
     public static final int REQUEST_CODE_CHEAT_ACTIVITY = 1;
-    public static final String EXTRA_SETTING_CLASS = "setting";
-
+    public static final int REQUEST_CODE_SETTING_ACTIVITY = 2;
+    public static final String EXTRA_SETTING_OBJECT = "setting";
+    private static final int SMALL_ID = 14, MEDIUM_ID = 18, LARGE_ID = 26, COLORFUL_ID = 1000, YELLOW_ID = 1001;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +59,6 @@ public class QuizActivity extends AppCompatActivity {
         parseQuestions(intent.getStringExtra(QuizActivity.BUNDLE_KEY_QUESTION));
         mIsQuestionAnswered = new boolean[mQuestionBank.size()];
         mIsCheatUsed = new boolean[mQuestionBank.size()];
-        mSetting = (Setting) intent.getSerializableExtra(EXTRA_SETTING_CLASS);
         timer(mIntTimer * 1000);
         findAllViews();
         setOnClickListeners();
@@ -66,8 +69,29 @@ public class QuizActivity extends AppCompatActivity {
             mScore = savedInstanceState.getInt(BUNDLE_KEY_SCORE);
             mCountDownRemaining = savedInstanceState.getLong(BUNDLE_KEY_COUNT_DOWN_REMAINING_LONG);
             timer(mCountDownRemaining);
+            setSettings();
             updateQuestions();
         }
+    }
+
+    public void setSettings() {
+        pScore = mSetting.getEditTextPositive();
+        nScore = mSetting.getEditTextNegative();
+        if (mSetting.getRadioGroupColor() == YELLOW_ID)
+            mRelativeLayoutMain.setBackgroundColor(Color.YELLOW);
+        else mRelativeLayoutMain.setBackgroundResource(R.mipmap.background_main);
+        mQuestionSize = mSetting.getRadioGroupQuestionSize();
+        mTextViewQuestion.setTextSize(mQuestionSize);
+        mButtonCheat.setEnabled(mSetting.isSwitchCheat());
+        mButtonFalse.setEnabled(mSetting.isSwitchFalse());
+        mButtonFirst.setEnabled(mSetting.isSwitchFirst());
+        mButtonLast.setEnabled(mSetting.isSwitchLast());
+        mButtonNext.setEnabled(mSetting.isSwitchNext());
+        mButtonPrevious.setEnabled(mSetting.isSwitchPrevious());
+        if (mSetting.isSwitchTimeOut()) mCountDownTimer.cancel();
+        else mCountDownTimer.start();
+        mButtonTrue.setEnabled(mSetting.isSwitchTrue());
+        updateQuestions();
     }
 
     @Override
@@ -119,6 +143,8 @@ public class QuizActivity extends AppCompatActivity {
         mTextViewQuestion = findViewById(R.id.question_text_view);
         mTextViewScore = findViewById(R.id.score_int_text_view);
         mTimerTextView = findViewById(R.id.timer_text_view);
+        mRelativeLayoutMain = findViewById(R.id.main_layout_relative);
+        mImageButtonSetting = findViewById(R.id.setting_image_button);
     }
 
     public void updateQuestions() {
@@ -164,9 +190,10 @@ public class QuizActivity extends AppCompatActivity {
         toast.show();
         if (!mIsCheatUsed[mCurrentIndex]) {
             if (b == mQuestionBank.get(mCurrentIndex).isAnswer())
-                mScore++;
-            else mScore--;
+                mScore += pScore;
+            else mScore -= nScore;
         }
+        if (mScore < 0) mScore = 0;
     }
 
     public void setOnClickListeners() {
@@ -242,14 +269,16 @@ public class QuizActivity extends AppCompatActivity {
             }
         });
 
-        mButtonSetting.setOnClickListener(new View.OnClickListener() {
+
+        mImageButtonSetting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(QuizActivity.this, SettingActivity.class);
-
+                intent.putExtra(EXTRA_SETTING_OBJECT, mSetting);
+                startActivityForResult(intent, REQUEST_CODE_SETTING_ACTIVITY);
+                updateQuestions();
             }
         });
-
     }
 
     @Override
@@ -259,9 +288,14 @@ public class QuizActivity extends AppCompatActivity {
         if (resultCode != RESULT_OK || data == null)
             return;
 
-        //result backed from cheate
+        //result back from cheat
         if (requestCode == REQUEST_CODE_CHEAT_ACTIVITY) {
             mIsCheatUsed = data.getBooleanArrayExtra(CheatActivity.BUNDLE_KEY_IS_CHEAT_USED);
+        }
+        if (requestCode == REQUEST_CODE_SETTING_ACTIVITY) {
+            mSetting = (Setting) data.getSerializableExtra(SettingActivity.EXTRA_SETTING_CLASS);
+            setSettings();
+            updateQuestions();
         }
     }
 

@@ -34,7 +34,6 @@ public class CheatActivity extends AppCompatActivity {
                 mIsCheatUsed[intent.getIntExtra(BUNDLE_KEY_CURRENT_INDEX, 0)] = true;
                 Toast toast = Toast.makeText(CheatActivity.this, String.valueOf(intent.getBooleanExtra(BUNDLE_KEY_ANSWER, true)), Toast.LENGTH_SHORT);
                 toast.show();
-
             }
         });
         saveActivity();

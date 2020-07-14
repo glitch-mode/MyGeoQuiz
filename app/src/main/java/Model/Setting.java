@@ -4,7 +4,9 @@ import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.Switch;
 
-public class Setting {
+import java.io.Serializable;
+
+public class Setting implements Serializable {
     private boolean mSwitchTrue, mSwitchFalse, mSwitchNext, mSwitchPrevious, mSwitchFirst, mSwitchLast, mSwitchCheat, mSwitchTimeOut;
     private int mRadioGroupQuestionSize, mRadioGroupColor;
     private int mEditTextPositive, mEditTextNegative;

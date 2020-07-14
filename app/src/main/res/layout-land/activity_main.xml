@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:alpha="0.8"
+    android:id="@+id/main_layout_relative"
     android:background="@mipmap/background_main_land"
     tools:context="Controller.QuizActivity">
 

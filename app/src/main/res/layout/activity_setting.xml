@@ -110,7 +110,6 @@
         <RadioButton
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:checked="true"
             android:id="@+id/medium_radio_button"
             android:text="@string/medium_radio_button"/>
 
@@ -138,8 +137,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@string/colorful_radio_button"
-                android:id="@+id/colorful_radio_button"
-                android:checked="true"/>
+                android:id="@+id/colorful_radio_button" />
 
             <RadioButton
                 android:layout_width="match_parent"

@@ -9,6 +9,7 @@ import android.os.Parcelable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Switch;
 
@@ -19,10 +20,12 @@ import java.io.Serializable;
 public class SettingActivity extends AppCompatActivity {
     private Switch mSwitchTrue, mSwitchFalse, mSwitchNext, mSwitchPrevious, mSwitchFirst, mSwitchLast, mSwitchCheat, mSwitchTimeOut;
     private RadioGroup mRadioGroupQuestionSize, mRadioGroupColor;
+    private RadioButton mRadioButtonSmall, mRadioButtonMedium, mRadioButtonLarge, mRadioButtonColorful, mRadioButtonYellow;
     private EditText mEditTextPositive, mEditTextNegative;
     private Button mButtonSave;
     private Setting setting = new Setting();
     public static final String EXTRA_SETTING_CLASS = "setting";
+    private static final int SMALL_ID = 14, MEDIUM_ID = 18, LARGE_ID = 26, COLORFUL_ID = 1000, YELLOW_ID = 1001;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,15 +33,22 @@ public class SettingActivity extends AppCompatActivity {
         setContentView(R.layout.activity_setting);
 
         findAllViews();
-        setAllViews();
+
         mButtonSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(SettingActivity.this, QuizActivity.class);
-                intent.putExtra(EXTRA_SETTING_CLASS, (Serializable) setting);
-                startActivity(intent);
+                setAllViews();
+                Intent intent = new Intent();
+                intent.putExtra(EXTRA_SETTING_CLASS, setting);
+                setResult(RESULT_OK, intent);
+                finish();
             }
         });
+        Intent intent = getIntent();
+        if (intent.getSerializableExtra(QuizActivity.EXTRA_SETTING_OBJECT) != null) {
+            setting = (Setting) intent.getSerializableExtra(QuizActivity.EXTRA_SETTING_OBJECT);
+        }
+
 
     }
 
@@ -56,6 +66,16 @@ public class SettingActivity extends AppCompatActivity {
         mEditTextPositive = findViewById(R.id.positive_edit_text);
         mEditTextNegative = findViewById(R.id.negative_edit_text);
         mButtonSave = findViewById(R.id.save_button);
+        mRadioButtonColorful = findViewById(R.id.colorful_radio_button);
+        mRadioButtonColorful.setId(COLORFUL_ID);
+        mRadioButtonLarge = findViewById(R.id.large_radio_button);
+        mRadioButtonLarge.setId(LARGE_ID);
+        mRadioButtonMedium = findViewById(R.id.medium_radio_button);
+        mRadioButtonMedium.setId(MEDIUM_ID);
+        mRadioButtonSmall = findViewById(R.id.small_radio_button);
+        mRadioButtonSmall.setId(SMALL_ID);
+        mRadioButtonYellow = findViewById(R.id.yellow_radio_button);
+        mRadioButtonYellow.setId(YELLOW_ID);
     }
 
     public void setAllViews() {

@@ -32,7 +32,9 @@ public class CheatActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 mIsCheatUsed[intent.getIntExtra(BUNDLE_KEY_CURRENT_INDEX, 0)] = true;
-                Toast toast = Toast.makeText(CheatActivity.this, String.valueOf(intent.getBooleanExtra(BUNDLE_KEY_ANSWER, true)), Toast.LENGTH_SHORT);
+                Toast toast = Toast.makeText(CheatActivity.this,
+                        String.valueOf(intent.getBooleanExtra(BUNDLE_KEY_ANSWER, true))
+                        , Toast.LENGTH_SHORT);
                 toast.show();
             }
         });
